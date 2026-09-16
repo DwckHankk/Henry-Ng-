@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Henry Ng | Travel Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{--blue:#2d6cdf;--dark:#17202a;--cream:#f7f4ed;--white:#fff;--gray:#68717c;--line:#e4e0d7}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);line-height:1.6}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:18px 6%;background:rgba(247,244,237,.86);backdrop-filter:blur(15px);border-bottom:1px solid rgba(0,0,0,.06)}
+.logo{text-decoration:none;color:var(--dark);font-weight:700;font-size:1.15rem}.logo span{color:var(--blue)}
+.lang-btn{border:0;background:#fff;padding:9px 16px;border-radius:30px;font-weight:600;cursor:pointer;box-shadow:0 4px 15px #0000000d;transition:.3s}.lang-btn:hover{transform:translateY(-2px);color:var(--blue)}
+.hero{min-height:100vh;padding:125px 6% 70px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:65px;max-width:1400px;margin:auto}
+.eyebrow{color:var(--blue);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,7vw,6.4rem);line-height:.94;margin-bottom:22px}.hero h1 span{color:var(--blue)}
+.location{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;background:#fff;border-radius:30px;font-size:.88rem;font-weight:600;margin-bottom:25px;box-shadow:0 5px 20px #0000000f}.location i{color:#e04b4b}
+.hero-sub{font-size:1.18rem;color:var(--gray);max-width:560px;margin-bottom:30px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{text-decoration:none;padding:13px 23px;border-radius:30px;display:inline-flex;align-items:center;gap:9px;font-weight:600;transition:.3s}.btn-primary{background:var(--dark);color:#fff}.btn-primary:hover{background:var(--blue);transform:translateY(-3px)}.btn-outline{border:1px solid #d5d1c8;color:var(--dark)}.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.hero-photo{position:relative;height:610px;border-radius:35px;overflow:hidden;box-shadow:0 25px 70px #00000024}.hero-photo img{width:100%;height:100%;object-fit:cover}.photo-label{position:absolute;left:24px;bottom:24px;background:#ffffffe8;backdrop-filter:blur(10px);padding:12px 17px;border-radius:15px;font-size:.85rem;font-weight:600}
+section{padding:100px 6%}.container{max-width:1200px;margin:auto}.section-top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}.section-title{font-family:'Playfair Display',serif;font-size:3rem}.section-description{color:var(--gray);max-width:500px}
+.stats{background:var(--dark);color:#fff}.stats-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.stat{padding:18px}.stat-number{font-family:'Playfair Display',serif;font-size:2.7rem;color:#8db4ff}.stat p{color:#b5bec8}
+.gallery{display:grid;grid-template-columns:1.25fr .75fr;grid-template-rows:300px 300px;gap:18px}.gallery-item{position:relative;overflow:hidden;border-radius:24px;background:#ddd}.gallery-item.large{grid-row:span 2}.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.6s}.gallery-item:hover img{transform:scale(1.06)}.gallery-item::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,#000000a8)}.gallery-caption{position:absolute;z-index:2;left:22px;bottom:20px;color:#fff}.gallery-caption span{font-size:.72rem;letter-spacing:1.5px;opacity:.85}.gallery-caption h3{font-family:'Playfair Display',serif;font-size:1.65rem}
+.about{background:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.about-photo{height:500px;border-radius:30px;overflow:hidden}.about-photo img{width:100%;height:100%;object-fit:cover}.about-text h2{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:20px}.about-text p{color:var(--gray);margin-bottom:16px}.interests{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.interest{padding:9px 15px;background:var(--cream);border-radius:20px;font-size:.85rem}
+.timeline{max-width:760px;margin:auto;position:relative}.timeline::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:1px;background:#d7d4cc}.timeline-item{position:relative;padding-left:50px;margin-bottom:45px}.timeline-dot{position:absolute;left:5px;top:5px;width:15px;height:15px;background:var(--blue);border-radius:50%;border:4px solid var(--cream)}.timeline-year{color:var(--blue);font-weight:700;font-size:.8rem}.timeline-item h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin:5px 0}.timeline-item p{color:var(--gray)}
+.contact{background:#e9f0fb;text-align:center}.contact h2{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:12px}.contact p{color:var(--gray)}.socials{display:flex;justify-content:center;gap:12px;margin-top:28px}.social{width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;color:var(--dark);text-decoration:none;font-size:1.2rem;transition:.3s}.social:hover{background:var(--blue);color:#fff;transform:translateY(-4px)}
+footer{padding:25px;text-align:center;background:var(--dark);color:#9aa3ad;font-size:.8rem}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.show{opacity:1;transform:none}
+
+@media(max-width:800px){
+.extra-gallery{grid-template-columns:1fr!important;grid-template-rows:260px 260px 260px!important}
+header{padding:16px 5%}.hero{grid-template-columns:1fr;padding-top:115px;gap:40px;text-align:center}.hero h1{font-size:4rem}.hero-sub{margin-left:auto;margin-right:auto}.buttons{justify-content:center}.hero-photo{height:450px}
+.section-top{display:block;text-align:center}.section-title{font-size:2.5rem;margin-bottom:14px}.section-description{margin:auto}
+.stats-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;grid-template-rows:340px 260px 260px}.gallery-item.large{grid-row:span 1}
+.about-grid{grid-template-columns:1fr;gap:40px}.about-photo{height:420px}.about-text{text-align:center}.interests{justify-content:center}
+section{padding:75px 6%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="#" class="logo">Henry <span>Ng.</span></a>
+<button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 VI</button>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<div class="eyebrow" id="eyebrow">TRAVEL • EXPLORE • EXPERIENCE</div>
+<div class="location"><i class="fa-solid fa-location-dot"></i><span id="locationText">Currently in Japan</span></div>
+<h1>Henry<br><span>Ng.</span></h1>
+<p class="hero-sub" id="heroText">Một người Việt Nam đang sống tại Nhật Bản, thích khám phá những nơi mới, đi bộ giữa thiên nhiên, chụp ảnh và lưu giữ những khoảnh khắc nhỏ của cuộc sống.</p>
+<div class="buttons">
+<a href="#memories" class="btn btn-primary"><i class="fa-solid fa-compass"></i><span id="exploreBtn">Khám phá hành trình</span></a>
+<a href="#contact" class="btn btn-outline"><span id="contactBtn">Kết nối</span></a>
+</div>
+</div>
+
+<div class="hero-photo">
+<img src="images/mountain-01.jpg" alt="Henry hiking in the mountains">
+<div class="photo-label">📍 Japan · Mountain Trip</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="stats-grid">
+<div class="stat"><div class="stat-number">🇯🇵</div><p id="stat1">Living in Japan</p></div>
+<div class="stat"><div class="stat-number">🥾</div><p id="stat2">Hiking & Exploring</p></div>
+<div class="stat"><div class="stat-number">📸</div><p id="stat3">Collecting Moments</p></div>
+</div>
+</section>
+
+<section id="memories" class="reveal">
+<div class="container">
+<div class="section-top">
+<div><div class="eyebrow" id="galleryEyebrow">TRAVEL MEMORIES</div><h2 class="section-title" id="galleryTitle">Những khoảnh khắc trên đường đi</h2></div>
+<p class="section-description" id="galleryDesc">Một vài khoảnh khắc từ những chuyến đi, những cung đường núi và những nơi đặc biệt tôi đã ghé qua.</p>
+</div>
+
+<div class="gallery">
+<div class="gallery-item large">
+<img src="images/mountain-01.jpg" alt="Mountain hiking">
+<div class="gallery-caption"><span>ADVENTURE</span><h3>Into the Mountains</h3></div>
+</div>
+<div class="gallery-item">
+<img src="images/travel-01.jpg" alt="Japan travel memories">
+<div class="gallery-caption"><span>JAPAN</span><h3>Forest & Shrine</h3></div>
+</div>
+<div class="gallery-item">
+<img src="images/travel-02.jpg" alt="Travel and lifestyle memories">
+<div class="gallery-caption"><span>LIFESTYLE</span><h3>Little Moments</h3></div>
+</div>
+</div>
+
+<div class="gallery extra-gallery" style="margin-top:18px">
+<div class="gallery-item">
+<img src="images/mountain-02.jpg" alt="Mountain sunset in Japan">
+<div class="gallery-caption"><span>MEMORY</span><h3>Mountain Evening</h3></div>
+</div>
+<div class="gallery-item">
+<img src="images/travel-01.jpg" alt="Shrine and hiking memories in Japan">
+<div class="gallery-caption"><span>JAPAN</span><h3>Forest & Shrine</h3></div>
+</div>
+<div class="gallery-item">
+<img src="images/travel-02.jpg" alt="Henry among flowers and lights">
+<div class="gallery-caption"><span>LIFESTYLE</span><h3>Flowers & Light</h3></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="about reveal">
+<div class="container about-grid">
+<div class="about-photo"><img src="images/travel-02.jpg" alt="Henry travel photo"></div>
+<div class="about-text">
+<div class="eyebrow" id="aboutEyebrow">A LITTLE ABOUT ME</div>
+<h2 id="aboutTitle">Một chút về Henry</h2>
+<p id="aboutText1">Tôi là Henry, một người Việt Nam đang sống và trải nghiệm cuộc sống tại Nhật Bản.</p>
+<p id="aboutText2">Tôi thích những chuyến đi không cần quá vội, những cung đường núi, thiên nhiên, những thành phố có câu chuyện riêng và những khoảnh khắc đời thường.</p>
+<p id="aboutText3">Website này là một góc nhỏ để lưu lại những nơi tôi đã đến, những điều tôi yêu thích và những kỷ niệm đáng nhớ trên hành trình của mình.</p>
+<div class="interests">
+<div class="interest">✈️ Travel</div><div class="interest">🥾 Hiking</div><div class="interest">📸 Photography</div><div class="interest">🌿 Nature</div><div class="interest">🎵 Music</div><div class="interest">♨️ Onsen</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="container">
+<div class="section-top"><div><div class="eyebrow" id="journeyEyebrow">MY JOURNEY</div><h2 class="section-title" id="journeyTitle">Hành trình</h2></div></div>
+<div class="timeline">
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2026</div><h3 id="timeline1Title">Khám phá Nhật Bản</h3><p id="timeline1Text">Những chuyến đi ngắn, những cung đường núi và những ngày cuối tuần dành cho việc khám phá.</p></div>
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">ADVENTURE</div><h3 id="timeline2Title">Into the Mountains</h3><p id="timeline2Text">Có những nơi phải đi bộ thật lâu mới tới được. Và đôi khi chính con đường mới là phần đáng nhớ nhất.</p></div>
+<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">LIFESTYLE</div><h3 id="timeline3Title">Slow Weekend</h3><p id="timeline3Text">Một chút cà phê, âm nhạc, thiên nhiên và thời gian dành cho bản thân.</p></div>
+</div>
+</div>
+</section>
+
+<section class="contact reveal" id="contact">
+<div class="container">
+<div class="eyebrow" id="contactEyebrow">LET'S CONNECT</div>
+<h2 id="contactTitle">Theo dõi hành trình của tôi</h2>
+<p id="contactText">Những chuyến đi, những khoảnh khắc và một chút cuộc sống tại Nhật Bản.</p>
+<div class="socials">
+<a href="https://www.facebook.com/share/195gENaaGU/?mibextid=wwXIfr" target="_blank" class="social" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/duck_hanhh?stkn=MWg1bDN0eXFtaDlscg%3D%3D&utm_source=qr" target="_blank" class="social" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="mailto:example@email.com" class="social" title="Email"><i class="fa-regular fa-envelope"></i></a>
+</div>
+</div>
+</section>
+
+<footer>© 2026 Henry Ng · Travel Journal 🌏</footer>
+
+<script>
+const languages=["vi","en","jp"];let currentLanguage=0;
+const data={
+vi:{lang:"🌐 VI",location:"Đang sống tại Nhật Bản",eyebrow:"TRAVEL • EXPLORE • EXPERIENCE",hero:"Một người Việt Nam đang sống tại Nhật Bản, thích khám phá những nơi mới, đi bộ giữa thiên nhiên, chụp ảnh và lưu giữ những khoảnh khắc nhỏ của cuộc sống.",explore:"Khám phá hành trình",contact:"Kết nối",stat1:"Sống tại Nhật Bản",stat2:"Leo núi & khám phá",stat3:"Lưu giữ khoảnh khắc",galleryEyebrow:"TRAVEL MEMORIES",galleryTitle:"Những khoảnh khắc trên đường đi",galleryDesc:"Một vài khoảnh khắc từ những chuyến đi, những cung đường núi và những nơi đặc biệt tôi đã ghé qua.",aboutEyebrow:"A LITTLE ABOUT ME",aboutTitle:"Một chút về Henry",about1:"Tôi là Henry, một người Việt Nam đang sống và trải nghiệm cuộc sống tại Nhật Bản.",about2:"Tôi thích những chuyến đi không cần quá vội, những cung đường núi, thiên nhiên, những thành phố có câu chuyện riêng và những khoảnh khắc đời thường.",about3:"Website này là một góc nhỏ để lưu lại những nơi tôi đã đến, những điều tôi yêu thích và những kỷ niệm đáng nhớ trên hành trình của mình.",journeyEyebrow:"MY JOURNEY",journeyTitle:"Hành trình",timeline1:"Khám phá Nhật Bản",timeline1Text:"Những chuyến đi ngắn, những cung đường núi và những ngày cuối tuần dành cho việc khám phá.",timeline2:"Into the Mountains",timeline2Text:"Có những nơi phải đi bộ thật lâu mới tới được. Và đôi khi chính con đường mới là phần đáng nhớ nhất.",timeline3:"Slow Weekend",timeline3Text:"Một chút cà phê, âm nhạc, thiên nhiên và thời gian dành cho bản thân.",contactEyebrow:"LET'S CONNECT",contactTitle:"Theo dõi hành trình của tôi",contactText:"Những chuyến đi, những khoảnh khắc và một chút cuộc sống tại Nhật Bản."},
+en:{lang:"🌐 EN",location:"Living in Japan",eyebrow:"TRAVEL • EXPLORE • EXPERIENCE",hero:"A Vietnamese guy living in Japan, exploring new places, hiking through nature, taking photos and collecting little moments along the way.",explore:"Explore my journey",contact:"Connect",stat1:"Living in Japan",stat2:"Hiking & Exploring",stat3:"Collecting Moments",galleryEyebrow:"TRAVEL MEMORIES",galleryTitle:"Moments Along the Way",galleryDesc:"A few memories from trips, mountain trails and special places I've visited.",aboutEyebrow:"A LITTLE ABOUT ME",aboutTitle:"A little about Henry",about1:"I'm Henry, a Vietnamese guy living and experiencing life in Japan.",about2:"I enjoy slow trips, mountain trails, nature, cities with their own stories and simple everyday moments.",about3:"This website is a little corner where I keep memories of places I've visited, things I love and moments worth remembering.",journeyEyebrow:"MY JOURNEY",journeyTitle:"My Journey",timeline1:"Exploring Japan",timeline1Text:"Short trips, mountain trails and weekends spent discovering something different.",timeline2:"Into the Mountains",timeline2Text:"Some places take a long walk to reach. Sometimes the journey itself becomes the best memory.",timeline3:"Slow Weekend",timeline3Text:"A little coffee, music, nature and time for myself.",contactEyebrow:"LET'S CONNECT",contactTitle:"Follow my journey",contactText:"Trips, memories and little pieces of life in Japan."},
+jp:{lang:"🌐 JP",location:"日本で暮らしています",eyebrow:"TRAVEL • EXPLORE • EXPERIENCE",hero:"日本で暮らしながら、新しい場所を旅したり、自然の中を歩いたり、写真を撮ったり、日常の小さな瞬間を残しています。",explore:"旅の記録を見る",contact:"つながる",stat1:"日本で暮らす",stat2:"ハイキング & 探索",stat3:"思い出を記録",galleryEyebrow:"TRAVEL MEMORIES",galleryTitle:"旅の途中の思い出",galleryDesc:"旅や山道、訪れた特別な場所で撮った思い出の一部です。",aboutEyebrow:"A LITTLE ABOUT ME",aboutTitle:"Henryについて",about1:"ベトナム出身のHenryです。現在、日本で暮らしながら日々の生活を楽しんでいます。",about2:"ゆっくり楽しむ旅、山道、自然、個性的な街、そして日常の小さな瞬間が好きです。",about3:"このサイトは、訪れた場所や好きなもの、大切な思い出を残すための小さな場所です。",journeyEyebrow:"MY JOURNEY",journeyTitle:"旅の記録",timeline1:"日本を探索",timeline1Text:"新しい街を訪れたり、山道を歩いたり、週末に日本のいろいろな場所を旅しています。",timeline2:"Into the Mountains",timeline2Text:"長い道のりの先にある場所。そして時には、その道のり自体が一番の思い出になります。",timeline3:"Slow Weekend",timeline3Text:"コーヒー、音楽、自然、そして自分のための時間。",contactEyebrow:"LET'S CONNECT",contactTitle:"旅の記録をフォロー",contactText:"日本での旅、思い出、そして日常の小さな瞬間。"}
+};
+
+function setText(id,text){document.getElementById(id).innerText=text}
+function toggleLanguage(){
+ currentLanguage=(currentLanguage+1)%languages.length;const l=data[languages[currentLanguage]];
+ setText("langBtn",l.lang);setText("locationText",l.location);setText("eyebrow",l.eyebrow);setText("heroText",l.hero);setText("exploreBtn",l.explore);setText("contactBtn",l.contact);
+ setText("stat1",l.stat1);setText("stat2",l.stat2);setText("stat3",l.stat3);setText("galleryEyebrow",l.galleryEyebrow);setText("galleryTitle",l.galleryTitle);setText("galleryDesc",l.galleryDesc);
+ setText("aboutEyebrow",l.aboutEyebrow);setText("aboutTitle",l.aboutTitle);setText("aboutText1",l.about1);setText("aboutText2",l.about2);setText("aboutText3",l.about3);
+ setText("journeyEyebrow",l.journeyEyebrow);setText("journeyTitle",l.journeyTitle);setText("timeline1Title",l.timeline1);setText("timeline1Text",l.timeline1Text);setText("timeline2Title",l.timeline2);setText("timeline2Text",l.timeline2Text);setText("timeline3Title",l.timeline3);setText("timeline3Text",l.timeline3Text);
+ setText("contactEyebrow",l.contactEyebrow);setText("contactTitle",l.contactTitle);setText("contactText",l.contactText);
+}
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")})},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
